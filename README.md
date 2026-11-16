@@ -19,7 +19,11 @@
 - VMD 추가 자료: traditional-display/process.jpg, fashion-display/sketch.jpg, fashion-display/process.jpg
 - 런웨이 영상: script.js 졸업작품의 type "video" (유튜브 id·start 초)
 
+- assets/archive/research/topten/, footwear/ : 보고서 미리보기(page-N.jpg, PDF에서 개인정보 없는 쪽만 추출)와 공개용 PDF(표지 제외)
+
 ## 내용 수정
+- Archive > Research & Analysis(보고서): script.js 의 REPORTS / Design Studies(드레이핑): ARCHIVE
+- 보고서 카드 썸네일은 이미지 파일이 아니라 REPORTS 의 thumb.cover(번호·큰 글자·한글 제목·키워드·tone: dark/slate)로 만든 글자 표지입니다. 문구는 script.js, 모양은 style.css 의 .rcover 에서 고칩니다. page-N.jpg 는 상세 화면의 '보고서 일부'에 쓰입니다.
 - 연락처: script.js 의 CONTACT (비우면 CONTACT 섹션 숨김)
 - Archive: script.js 의 ARCHIVE (비우면 숨김)
 - 프로젝트 문구·사진 연결: script.js 의 PROJECTS
@@ -34,3 +38,7 @@
 2. 이 폴더의 파일 전체를 저장소 루트에 업로드
 3. Settings > Pages > Source: Deploy from a branch > main / (root) > Save
 4. 1~2분 뒤 https://<깃허브아이디>.github.io/seoyeon-portfolio/ 접속
+
+## 개인정보 주의
+- 보고서 원본 PDF(학번·교수명이 있는 표지 포함)는 사이트 폴더 밖에 따로 보관하고 있습니다. GitHub에 올리지 마세요.
+- 사이트에 포함된 PDF는 표지를 뺀 공개용 사본이며, 메타데이터도 비워 두었습니다.

@@ -6,8 +6,9 @@ const CONTACT = {
   pdf: ""         // 예: "assets/portfolio.pdf"
 };
 
-/* ===== 수정하는 곳 2: Archive =====
-   비워 두면 ARCHIVE 섹션과 메뉴가 숨겨집니다. r 은 사진의 가로:세로 비율입니다. */
+/* ===== 수정하는 곳 2: Archive > Design Studies (드레이핑) =====
+   비워 두면 Design Studies 그룹이 숨겨지고, 아래 REPORTS 도 비어 있으면 ARCHIVE 섹션과 메뉴까지 숨겨집니다.
+   r 은 사진의 가로:세로 비율입니다. */
 const A = "assets/archive/";
 const ARCHIVE = [
   { src: A + "draping-1.jpg", r: "3/4", cap: "Draping Study 01" },
@@ -130,6 +131,96 @@ const PROJECTS = [
   }
 ];
 
+/* ===== 수정하는 곳 4: Archive > Research & Analysis (수업 과제 보고서) =====
+   PDF는 학번·교수명이 있는 표지를 뺀 공개용 사본입니다. 학번이 들어 있는 원본 PDF는 이 폴더에 넣지 마세요.
+   [작업자 메모] 두 보고서 모두 직접 설문·실험이 아닌 수업 과제입니다.
+     TOPTEN = 개인 구매 경험 기반 분석 / Footwear = 한국소비자원 공개 사례 조사·분석.
+     기업 내부 데이터나 대규모 조사에 근거한 연구처럼 쓰지 않습니다.
+   미리보기 이미지: assets/archive/research/<topten|footwear>/page-N.jpg (PDF에서 개인정보 없는 쪽만 추출) */
+const RS = "assets/archive/research/";
+const REPORTS = [
+  {
+    id: "topten", eyebrow: "Academic Research · Retail Strategy", cat: "Academic Research · Retail Strategy",
+    title: "TOPTEN 매장 경험 분석",
+    desc: "탑텐 오프라인 매장 경험을 바탕으로 STP·VMD·CRM을 분석하고, 체형과 핏 중심의 개선안을 제안했습니다.",
+    tags: ["Retail Experience", "STP", "VMD", "CRM"],
+    /* 카드 썸네일: PDF 캡처가 아니라 CSS로 만든 타이포그래피 표지 (style.css 의 .rcover) */
+    thumb: { cover: { no: "01", big: "TOPTEN", small: "매장 경험 분석", keys: "Retail · STP · VMD · CRM", tone: "dark" } },
+    lead: "탑텐 오프라인 매장 이용 경험을 바탕으로 STP·VMD·CRM을 분석하고, 체형과 핏 중심의 개선안을 제안한 수업 과제입니다.",
+    facts: [["유형", "Academic Research"], ["수업", "패션리테일링"], ["분석 대상", "탑텐 오프라인 매장"], ["근거", "개인 구매 경험"]],
+    link: { href: RS + "topten/topten-retail-experience-analysis.pdf", label: "보고서 PDF 열기 · 공개용(표지 제외)" },
+    sections: [
+      { type: "scope", text: "개인 구매 경험을 바탕으로 한 분석입니다. 기업 내부 데이터나 대규모 소비자 조사에 근거한 연구가 아닙니다." },
+      { h: "조사 배경과 목적", type: "points", items: [
+        { t: "배경", d: "최근 6개월 이내에 매장에서 상품을 둘러보고 직접 피팅한 뒤 구매한 경험입니다. 가격과 사이즈를 가장 중요하게 봤고, 코디에 두루 쓸 수 있는 기본 아이템을 선호했습니다." },
+        { t: "목적", d: "이 경험을 STP·VMD·CRM 관점에서 분석하고, 체형과 핏을 기준으로 한 개선 방안을 제안하는 것입니다." } ] },
+      { h: "핵심 분석", sub: "STP · VMD · CRM", type: "cols", items: [
+        { t: "STP", d: "‘합리적인 가격의 데일리 캐주얼 브랜드’로 포지셔닝하고, 실용성과 가격 대비 만족을 중시하며 할인에 민감한 소비자를 주요 타깃으로 봤습니다." },
+        { t: "VMD", d: "입구의 1+1·할인·시즌 상품으로 가격 혜택이 바로 전달되고 카테고리·컬러별로 고르기 편합니다. 다만 행사 상품이 몰리면 혼잡해지고 저가 행사장처럼 보일 수 있습니다." },
+        { t: "CRM", d: "회원 적립과 행사 안내가 재방문 동기를 만듭니다. 다만 할인 중심으로만 운영되면 충성도가 가격에만 의존합니다." } ] },
+      { h: "주요 발견", type: "points", items: [
+        { t: "오프라인의 가치", d: "소재감, 두께, 실제 색상, 착용 핏을 직접 확인할 수 있어 구매 실패를 줄여 줍니다." },
+        { t: "행사 기간의 불편", d: "매장이 혼잡하고 할인 상품이 한곳에 몰려 원하는 색상과 사이즈를 찾는 데 시간이 걸렸습니다." },
+        { t: "가격 중심 운영의 한계", d: "‘할인할 때 사는 브랜드’로 인식될 수 있습니다." } ] },
+      { h: "개선 전략 제안", sub: "체형과 착용 목적에 맞춘 VMD와 CRM 강화", cls: "propose", type: "cols", items: [
+        { t: "체형·핏 기준 상품 안내", d: "행거에 ‘슬림핏’, ‘정핏’, ‘오버핏’ 같은 착용감 중심 태그를 붙여 사이즈뿐 아니라 핏으로도 고를 수 있게 합니다." },
+        { t: "피팅룸 주변 추천 코디 보드", d: "피팅룸 인근에 체형별·스타일별 코디 보드를 두고 ‘깔끔한 데일리룩’, ‘활동성이 좋은 여유핏’ 같은 추천을 안내합니다." },
+        { t: "사이즈 선호 기반 개인화 CRM", d: "멤버십 데이터로 자주 구매하는 사이즈와 선호 핏을 파악해, 비슷한 핏의 신상품과 행사 상품을 알림과 온라인몰 추천으로 안내합니다." } ],
+        after: "‘가격이 합리적인 브랜드’를 넘어 ‘나에게 맞는 옷을 쉽게 찾을 수 있는 브랜드’로 인식되고, 일회성 구매가 반복 구매로 이어질 수 있다고 정리했습니다." },
+      { h: "보고서 일부", type: "gallery", layout: "p3", ratio: "1012/1430", items: [
+        { src: RS + "topten/page-1.jpg", cap: "구매 경험 분석" },
+        { src: RS + "topten/page-2.jpg", cap: "STP 및 VMD 평가" },
+        { src: RS + "topten/page-3.jpg", cap: "CRM 평가와 개선점" } ] }
+    ],
+    roleLabel: "Scope",
+    role: "개인 수업 과제로 작성한 보고서입니다."
+  },
+  {
+    id: "footwear", eyebrow: "Academic Research · Consumer Research", cat: "Academic Research · Consumer Research",
+    title: "신발 소비자 불만사례 분석",
+    desc: "한국소비자원 공개 자료를 바탕으로 신발 관련 소비자 피해사례를 유형별로 조사하고 분석했습니다.",
+    tags: ["Consumer Complaints", "Product Defect", "Care & Laundry", "Online Returns"],
+    thumb: { cover: { no: "02", big: "FOOTWEAR", small: "소비자 불만사례 분석", keys: "Consumer · Quality · Case Study", tone: "slate" } },
+    lead: "한국소비자원이 공개한 신발 관련 피해사례를 제품 손상·관리·취급 유형으로 나눠 분석하고, 소비자와 사업자 측 시사점을 정리한 수업 과제입니다.",
+    facts: [["유형", "Academic Research"], ["조사 대상", "신발 관련 소비자 피해사례"], ["조사 기관", "한국소비자원(KCA)"], ["조사 기간", "최근 15년 이내 (2010~2025)"]],
+    link: { href: RS + "footwear/footwear-consumer-complaints-research.pdf", label: "보고서 PDF 열기 · 공개용(표지 제외)" },
+    sections: [
+      { type: "scope", text: "직접 진행한 설문조사나 실험이 아니라, 한국소비자원이 공개한 피해예방주의보와 소비자분쟁조정 사례를 조사해 분석한 수업 과제입니다." },
+      { h: "조사 목적과 대상", type: "points", items: [
+        { t: "목적", d: "신발에서 어떤 소비자 분쟁이 생기고 무엇을 기준으로 판단되는지 유형별로 정리하는 것입니다. 제품 손상, 관리(세탁·보관), 취급(온라인 거래)을 한 품목 안에서 함께 살펴볼 수 있습니다." },
+        { t: "대상", d: "한국소비자원의 피해예방주의보와 소비자분쟁조정 사례 중 최근 15년 이내의 신발 관련 사례입니다." },
+        { t: "배경 수치", d: "2020년 1월~2021년 6월 온라인 신발 구매 피해구제 신청은 924건이었고, 여름용 신발 121건 중 81건(약 67%)이 품질하자로 판단됐습니다. (한국소비자원 집계)" } ] },
+      { h: "주요 피해사례 유형", type: "cols", items: [
+        { t: "제품 손상 · 품질 하자", d: "설계·접착 불량처럼 구조적 문제가 확인되면 제품 결함으로 인정됩니다. 사용 환경의 영향이 큰 마모는 제조 하자로 보기 어렵습니다." },
+        { t: "관리 · 세탁", d: "세탁 불가 신발이라도 세탁업자가 라벨 확인 없이 세탁하면 배상 책임이 인정되며, 소비자와 업자의 과실이 함께 고려됩니다." },
+        { t: "취급 · 온라인 거래", d: "수령 후 7일 이내 문제 제기와 청약철회 의사 표시가 환불 인정의 핵심 기준입니다." } ] },
+      { h: "사례별 핵심 분석", type: "points", items: [
+        { t: "스트랩 길이 비대칭 (샌들)", d: "오른발 스트랩이 5mm 이상 짧아 설계 불량에 따른 제품 결함으로 판단됐습니다." },
+        { t: "갑피·밑창 접착 불량 (샌들)", d: "연결 부위의 접착 강도가 부족한 제조 공정상의 결함으로 판단됐습니다." },
+        { t: "밑창 마모 (운동화)", d: "객관적 품질 기준이 없고 사용 환경과 착용 습관에 따라 달라 제조 하자로 보기 어렵다고 판단됐습니다." },
+        { t: "세탁 불가 스니커즈 변색", d: "스웨이드 제품을 취급 정보 확인 없이 물세탁해, 세탁업체가 잔존가치와 세탁비를 합한 금액을 배상하도록 조정됐습니다." },
+        { t: "세탁 불가 표시 신발의 변색", d: "라벨의 세탁 불가 표시를 고려해 소비자 책임 70%, 세탁업체 책임 30%로 나뉘었습니다." },
+        { t: "사이즈 불일치 환불 (중고 신사화)", d: "수령 7일 이내 문제 제기와 청약철회 의사가 인정돼 대금 전액 환급으로 판정됐습니다. 수선은 사업자의 ‘수선 가능’ 안내에 따른 것이라 소비자 과실이 아니며, 실외 착용 주장은 증거가 부족했습니다." } ] },
+      { h: "소비자 및 사업자 측 시사점", cls: "propose", type: "cols", items: [
+        { t: "소비자 측", d: "수령 직후 사이즈·외관·기능을 점검하고, 이상이 있으면 7일 이내에 문제를 제기하며 청약철회 의사를 남깁니다. 케어라벨을 확인하지 않으면 공동 과실로 판단될 수 있습니다." },
+        { t: "사업자·세탁업자 측", d: "설계·접착·내구성 등 기본 품질을 관리하고, 사이즈·소재·취급 정보와 품질보증기간을 명확히 안내해야 합니다. 세탁업자는 라벨 확인, 세탁 방법 안내, 인수증 교부 같은 기본 절차를 지켜야 합니다." } ] },
+      { h: "보고서 일부", type: "gallery", layout: "g2", ratio: "16/9", items: [
+        { src: RS + "footwear/page-1.jpg", cap: "서론: 조사 배경" },
+        { src: RS + "footwear/page-4.jpg", cap: "제품 손상 사례" },
+        { src: RS + "footwear/page-2.jpg", cap: "관리·세탁 사례와 책임 구분" },
+        { src: RS + "footwear/page-3.jpg", cap: "결론과 시사점" } ] },
+      { h: "인용 출처", type: "sources", items: [
+        "한국소비자원 피해구제 신청 통계",
+        "한국소비자원 피해예방주의보, 「여름용 신발 품질하자 '내구성 불량'이 가장 많아」",
+        "한국소비자원 피해예방주의보, 「운동화 품질하자 등 '내구성 불량'이 80.2%로 가장 많아」",
+        "한국소비자원 소비자분쟁조정위원회, 「세탁 후 갑피 변형된 스니커즈에 대한 배상 요구」, 「세탁 후 변색된 신발 관련 손해배상 청구」",
+        "한국소비자원 소비자분쟁조정위원회, 「사이즈가 작은 신사화 반품 요구」" ] }
+    ],
+    roleLabel: "Scope",
+    role: "개인 수업 과제로 작성한 조사 보고서입니다. 인용한 사례와 통계의 출처는 한국소비자원 공개 자료입니다."
+  }
+];
+
 /* ================= 이하 동작 코드 (보통 수정할 필요 없음) ================= */
 const $ = (s, r = document) => r.querySelector(s);
 const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -177,13 +268,14 @@ function lbShow(i) {
   const one = lbList.length < 2; $("#lbPrev").hidden = $("#lbNext").hidden = one;
 }
 document.addEventListener("click", e => {
-  const b = e.target.closest(".box.zoom"); if (!b) return;
-  lbList = [...b.closest(".gal").querySelectorAll(".box.zoom")];
+  const b = e.target.closest(".zoom"); if (!b) return;
+  const g = b.closest(".gal");   /* 갤러리 안 사진은 묶어서 넘기고, 단독 대표 이미지는 한 장만 보여줍니다 */
+  lbList = g ? [...g.querySelectorAll(".zoom")] : [b];
   if (!lb.open) lb.showModal();
   lbShow(lbList.indexOf(b));
 });
 document.addEventListener("keydown", e => {
-  const b = e.target.closest && e.target.closest(".box.zoom");
+  const b = e.target.closest && e.target.closest(".zoom");
   if (b && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); b.click(); }
   if (lb.open && e.key === "ArrowRight") lbShow(lbI + 1);
   if (lb.open && e.key === "ArrowLeft") lbShow(lbI - 1);
@@ -198,17 +290,34 @@ PROJECTS.forEach((p, i) => {
   const b = document.createElement("button");
   b.className = "card reveal";
   b.innerHTML = `<div class="thumb"></div><span class="cat">${esc(p.cat)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><span class="tag">${esc(p.tag)}</span>`;
-  b.onclick = () => openProject(i);
+  b.onclick = () => openItem(PROJECTS, i);
   $("#cards").appendChild(b);
   const t = p.thumb || {};
   mount($(".thumb", b), t.src || `assets/projects/${p.id}/cover.jpg`, "대표 이미지", p.title, t);
 });
 
+/* Archive 보고서 카드: 썸네일은 이미지 파일 대신 글자로 만든 표지 */
+function rcover(el, c, title) {
+  el.classList.add("rc");
+  el.innerHTML = `<div class="rcover ${esc(c.tone)}" role="img" aria-label="${esc(title)}"><span class="rc-top"><i>Research</i><i>No. ${esc(c.no)}</i></span><span class="rc-main"><b>${esc(c.big)}</b><em>${esc(c.small)}</em></span><span class="rc-keys">${esc(c.keys)}</span></div>`;
+}
+/* Archive 보고서 카드 */
+REPORTS.forEach((p, i) => {
+  const b = document.createElement("button");
+  b.className = "card reveal";
+  b.innerHTML = `<div class="thumb"></div><span class="cat">${esc(p.cat)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="ktags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>`;
+  b.onclick = () => openItem(REPORTS, i);
+  $("#reportCards").appendChild(b);
+  rcover($(".thumb", b), p.thumb.cover, p.title);
+});
+
 /* 프로젝트 상세 */
 const modal = $("#modal"), body = $("#mBody");
-let cur = 0;
+let cur = 0, curList = PROJECTS, curBack = "#projects";
 function section(s, i) {
   let inner = "";
+  if (s.type === "cols") inner = `<ul class="steps cols">${s.items.map(x => `<li><b>${esc(x.t)}</b><span>${esc(x.d)}</span></li>`).join("")}</ul>`;
+  if (s.type === "sources") inner = `<ul class="src">${s.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
   if (s.type === "steps") inner = `<ol class="steps">${s.items.map(x => `<li><b>${esc(x.t)}</b><span>${esc(x.d)}</span></li>`).join("")}</ol>`;
   if (s.type === "points") inner = `<dl class="points">${s.items.map(x => `<div><dt>${esc(x.t)}</dt><dd>${esc(x.d)}</dd></div>`).join("")}</dl>`;
   if (s.type === "tags") inner = `<div class="tags">${s.items.map(x => `<span>${esc(x)}</span>`).join("")}</div>`;
@@ -216,18 +325,21 @@ function section(s, i) {
   if (s.type === "gallery" || s.type === "images") inner = `<div data-si="${i}"></div>`;
   if (s.type === "video") inner = `<div class="vid" data-vid="${i}"><button class="vid-play" type="button"><span aria-hidden="true">▶</span> 런웨이 영상 재생</button></div><a class="m-link" href="${esc(s.href)}" target="_blank" rel="noopener">YouTube에서 보기</a>`;
   if (s.type === "note") return `<p class="m-note">${esc(s.text)}</p>`;
-  return `<section class="ms"><h3>${esc(s.h)}</h3>${inner}</section>`;
+  if (s.type === "scope") return `<p class="m-scope">${esc(s.text)}</p>`;
+  return `<section class="ms${s.cls ? " " + s.cls : ""}"><h3>${esc(s.h)}</h3>${s.sub ? `<p class="sub">${esc(s.sub)}</p>` : ""}${inner}${s.after ? `<p class="m-text m-after">${esc(s.after)}</p>` : ""}</section>`;
 }
-function openProject(i) {
-  cur = (i + PROJECTS.length) % PROJECTS.length;
-  const p = PROJECTS[cur];
+function openItem(list, i) {
+  curList = list; curBack = list === REPORTS ? "#archive" : "#projects";
+  cur = (i + list.length) % list.length;
+  const p = list[cur];
+  body.classList.toggle("rep", !!p.eyebrow);
   body.innerHTML = `
-    <div class="m-head"><h2 id="mTitle">${esc(p.title)}</h2><p class="m-lead">${esc(p.lead)}</p>
+    <div class="m-head">${p.eyebrow ? `<p class="m-eyebrow">${esc(p.eyebrow)}</p>` : ""}<h2 id="mTitle">${esc(p.title)}</h2><p class="m-lead">${esc(p.lead)}</p>
       <dl class="m-facts">${p.facts.map(f => `<div><dt>${esc(f[0])}</dt><dd>${esc(f[1])}</dd></div>`).join("")}</dl>
       ${p.link ? `<a class="m-link" href="${esc(p.link.href)}" target="_blank" rel="noopener">${esc(p.link.label)}</a>` : ""}</div>
     ${p.cover ? '<div class="m-cover" id="mCover"></div>' : ""}
     ${p.sections.map(section).join("")}
-    <div class="m-role"><h3>Role</h3><p>${esc(p.role)}</p></div>`;
+    <div class="m-role"><h3>${esc(p.roleLabel || "Role")}</h3><p>${esc(p.role)}</p></div>`;
   if (p.cover) mount($("#mCover"), p.cover.src, "대표 이미지", null, { zoom: true });
   if (p.cover) $("#mCover").dataset.cap = p.cover.cap || "";
   body.querySelectorAll("[data-si]").forEach(h => {
@@ -245,16 +357,21 @@ function openProject(i) {
   modal.scrollTop = 0;
   history.replaceState(null, "", `#${p.id}`);
 }
-modal.addEventListener("close", () => { document.documentElement.style.overflow = ""; history.replaceState(null, "", "#projects"); });
+modal.addEventListener("close", () => { document.documentElement.style.overflow = ""; history.replaceState(null, "", curBack); });
 modal.addEventListener("click", e => { if (e.target === modal) modal.close(); });
 $("#mClose").onclick = () => modal.close();
-$("#mPrev").onclick = () => openProject(cur - 1);
-$("#mNext").onclick = () => openProject(cur + 1);
-if (location.hash) { const i = PROJECTS.findIndex(p => "#" + p.id === location.hash); if (i > -1) openProject(i); }
+$("#mPrev").onclick = () => openItem(curList, cur - 1);
+$("#mNext").onclick = () => openItem(curList, cur + 1);
+if (location.hash) {
+  const pi = PROJECTS.findIndex(p => "#" + p.id === location.hash), ri = REPORTS.findIndex(p => "#" + p.id === location.hash);
+  if (pi > -1) openItem(PROJECTS, pi); else if (ri > -1) openItem(REPORTS, ri);
+}
 
 /* Archive: 내용이 있을 때만 표시 */
 function hide(id) { $("#" + id).remove(); const a = $(`#menu a[href="#${id}"]`); if (a) a.remove(); }
-if (ARCHIVE.length) gallery($("#archiveList"), "g3", ARCHIVE, "3/4"); else hide("archive");
+if (ARCHIVE.length) gallery($("#archiveList"), "g3", ARCHIVE, "3/4"); else $("#arcDesign").remove();
+if (!REPORTS.length) $("#arcResearch").remove();
+if (!ARCHIVE.length && !REPORTS.length) hide("archive");
 
 /* Contact: 입력된 항목이 있을 때만 표시 */
 const rows = [];
