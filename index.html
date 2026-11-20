@@ -3,101 +3,69 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>최서연 | CHOI SEOYEON — Fashion Portfolio</title>
-<meta name="description" content="Fashion, through Research & Design. 최서연의 패션 포트폴리오.">
+<title>CHOE SEOYEON | Fashion Portfolio</title>
+<meta name="description" content="Fashion, through Research & Design. 패션 브랜드 마케팅·전략 기획을 준비하는 최서연의 패션 포트폴리오.">
+<link rel="canonical" href="https://choiseoyeon333.github.io/seoyeon-portfolio/">
+<meta name="theme-color" content="#F7F7F5">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- 링크 공유 미리보기(Open Graph): 주소를 바꾸면 og:url·og:image 의 https://choiseoyeon333.github.io/seoyeon-portfolio/ 부분도 함께 바꾸세요 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CHOE SEOYEON | Fashion Portfolio">
+<meta property="og:title" content="CHOE SEOYEON | Fashion Portfolio">
+<meta property="og:description" content="Fashion, through Research &amp; Design.">
+<meta property="og:url" content="https://choiseoyeon333.github.io/seoyeon-portfolio/">
+<meta property="og:image" content="https://choiseoyeon333.github.io/seoyeon-portfolio/assets/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CHOE SEOYEON — Fashion, through Research &amp; Design. 졸업작품 FLASH FREEZE 의상 사진">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CHOE SEOYEON | Fashion Portfolio">
+<meta name="twitter:description" content="Fashion, through Research &amp; Design.">
+<meta name="twitter:image" content="https://choiseoyeon333.github.io/seoyeon-portfolio/assets/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="assets/projects/graduation/grad-01.jpg" fetchpriority="high">
+<link rel="stylesheet" href="landing.css">
+<link rel="prefetch" href="portfolio.html">
+<link rel="prefetch" as="image" href="assets/profile.jpg">
+<script>if("PageRevealEvent" in window&&!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches))document.documentElement.classList.add("vt")</script>
+<script src="transition.js"></script>
+<script>/* 포트폴리오에서 돌아온 경우: 긴 첫 등장 효과 대신 짧은 효과 */try{if(sessionStorage.getItem("seoyeon-from")){document.documentElement.classList.add("l-return");sessionStorage.removeItem("seoyeon-from")}}catch(e){}</script>
 </head>
-<body>
-<a class="skip" href="#home">본문으로 건너뛰기</a>
-<header class="nav" id="nav">
-  <a class="logo" href="#home">CHOI SEOYEON</a>
-  <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
-  <nav id="menu" class="menu" aria-label="주요 메뉴">
-    <a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#archive">Archive</a><a href="#contact">Contact</a>
-  </nav>
+<body class="landing">
+<!-- 랜딩 페이지: 디자인 중심의 첫 화면. 포트폴리오 본문은 portfolio.html -->
+<header class="l-top">
+  <span class="l-logo">CHOE SEOYEON</span>
+  <span class="l-tag">Fashion Portfolio 2026</span>
 </header>
 
-<main>
-<section id="home" class="hero">
-  <div class="hero-text">
-    <h1>CHOI<br>SEOYEON.</h1>
-    <p class="slogan">Fashion, through Research &amp; Design.</p>
-    <p class="sub">시장과 소비자를 이해하고, 디자인으로 연결하는 패션 포트폴리오.</p>
-    <p class="keys">Brand Strategy, Fashion Design, Visual Merchandising</p>
-    <a class="btn" href="#projects">프로젝트 보기</a>
+<main class="l-stage">
+  <div class="l-media">
+    <figure class="l-photo">
+      <div class="l-img"><img src="assets/projects/graduation/grad-01.jpg" width="1400" height="2100" alt="졸업작품 FLASH FREEZE 의상을 입은 모델" fetchpriority="high" decoding="async"></div>
+    </figure>
+    <p class="l-cap"><span>Graduation Project</span>FLASH FREEZE</p>
   </div>
-  <div class="hero-img" data-img="assets/projects/graduation/grad-01.jpg" data-label="대표 이미지"></div>
-</section>
 
-<section id="about" class="sec">
-  <h2>About</h2>
-  <div class="about-grid">
-    <div>
-      <blockquote>디자인의 언어로 패션을 이해하고, 리서치의 관점으로 브랜드를 바라봅니다.</blockquote>
-      <p>패션디자인을 전공하며 의상 제작과 콘셉트 개발을 경험했습니다. 동시에 시장의 흐름과 소비자 특성을 살펴보고, 브랜드의 방향을 제안하는 과정에 흥미를 느꼈습니다.</p>
-      <p>졸업작품에서 시각적 콘셉트를 의상과 런웨이로 연결하고, 돌웨어 공모전에서는 기존 브랜드 분석부터 타깃 설정·상품 구성·마케팅 제안까지 하나의 흐름으로 정리했습니다. 디자인 감각과 논리적인 기획을 함께 발전시켜 나가고자 합니다.</p>
-      <dl class="info">
-        <div><dt>이름</dt><dd>최서연 | CHOI SEOYEON</dd></div>
-        <div><dt>전공</dt><dd>신라대학교 패션디자인 (2026년 4학년 2학기)</dd></div>
-        <div><dt>관심 직무</dt><dd>패션 브랜드 마케팅 / 브랜드·시장 분석 / 전략 기획</dd></div>
-        <div><dt>관심 업무</dt><dd>경쟁사·시장 조사, 소비자 타깃 분석, 브랜드 포지셔닝, 상품·캠페인 전략 제안</dd></div>
-        <div><dt>수행 경험</dt><dd>브랜드 기획 공모전 출품 / 졸업작품 디자인 / VMD 2인 공동 프로젝트</dd></div>
-      </dl>
-    </div>
-    <div class="profile" data-img="assets/profile.jpg" data-label="프로필 사진" data-ratio="4/5"></div>
-  </div>
-  <div class="skills">
-    <article><h3>Research</h3><p>브랜드 분석과 타깃 설정</p><small>돌웨어 공모전의 경쟁환경·SWOT·STP 구성</small></article>
-    <article><h3>Design</h3><p>패션 콘셉트와 의상 이해</p><small>졸업작품 기획 및 의상 작업</small></article>
-    <article><h3>Display</h3><p>시각적 연출과 전시 경험</p><small>전통 소품 및 졸업 의상 VMD 공동 기획·제작</small></article>
-  </div>
-</section>
+  <h1 class="l-name" aria-label="CHOE SEOYEON">
+    <span class="ln"><span>CHOE</span></span>
+    <span class="ln"><span>SEOYEON.</span></span>
+  </h1>
 
-<section id="projects" class="sec alt">
-  <h2>Projects</h2>
-  <p class="lead">리서치에서 출발해 의상 디자인과 전시 연출로 이어진 네 가지 작업입니다.</p>
-  <div class="cards" id="cards"></div>
-</section>
-
-<section id="archive" class="sec">
-  <h2>Archive</h2>
-  <p class="lead">수업 과제로 진행한 리서치와 드레이핑 작업을 모았습니다.</p>
-  <div class="arc-group" id="arcResearch">
-    <h3>Research &amp; Analysis</h3>
-    <div class="cards" id="reportCards"></div>
+  <div class="l-info">
+    <p class="l-slogan">Fashion, through<br>Research &amp; Design.</p>
+    <p class="l-sub">시장과 소비자를 이해하고, 디자인으로 연결하는 패션 포트폴리오.</p>
+    <p class="l-keys">Brand Strategy / Fashion Design / Visual Merchandising</p>
+    <a class="l-btn" id="enter" href="portfolio.html" data-page><span>View Portfolio</span><i aria-hidden="true">→</i></a>
   </div>
-  <div class="arc-group" id="arcDesign">
-    <h3>Design Studies</h3>
-    <div class="archive" id="archiveList"></div>
-  </div>
-</section>
-
-<section id="contact" class="sec alt">
-  <h2>Contact</h2><!-- 연락처는 script.js의 CONTACT에 입력하면 이 섹션이 나타납니다 -->
-  <div id="contactBox" class="contact"></div>
-</section>
 </main>
-
-<footer><span>© 2026 CHOI SEOYEON</span><a href="#home">맨 위로</a></footer>
-
-<dialog id="modal" aria-labelledby="mTitle">
-  <div class="m-bar">
-    <button id="mPrev" class="m-nav" aria-label="이전 프로젝트">이전</button>
-    <button id="mNext" class="m-nav" aria-label="다음 프로젝트">다음</button>
-    <button id="mClose" class="m-close" aria-label="닫기">전체 목록</button>
-  </div>
-  <div class="m-body" id="mBody"></div>
-</dialog>
-<dialog id="lb" aria-label="이미지 확대 보기">
-  <button id="lbClose" class="lb-btn lb-close" aria-label="닫기">닫기</button>
-  <button id="lbPrev" class="lb-btn lb-prev" aria-label="이전 사진">이전</button>
-  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
-  <button id="lbNext" class="lb-btn lb-next" aria-label="다음 사진">다음</button>
-</dialog>
-<script src="script.js"></script>
+<script src="landing.js"></script>
 </body>
 </html>
