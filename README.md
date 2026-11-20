@@ -10,6 +10,7 @@ portfolio.html    Portfolio Page (ABOUT / PROJECTS / ARCHIVE / CONTACT)
 landing.css       랜딩 전용 스타일          landing.js   예전 주소(#해시) 링크를 portfolio.html 로 연결
 style.css         포트폴리오 스타일          script.js    프로젝트·보고서·연락처 내용과 화면 동작
 transition.js     두 페이지 공통 이동 효과
+tools/stamp-version.py   CSS·JS 주소의 ?v=해시 를 갱신하는 도구 (아래 "업데이트할 때" 참고)
 favicon.svg / favicon.ico / apple-touch-icon.png   파비콘 (CS.)
 assets/           이미지와 PDF (assets/og-image.jpg = 링크 공유용 이미지)
 .nojekyll         GitHub Pages 설정 파일 (비어 있음)
@@ -36,6 +37,21 @@ HTML / CSS / 바닐라 JavaScript. 글꼴은 Inter(Google Fonts)와 Pretendard(j
 | 푸터 크레딧 | portfolio.html 맨 아래 `.f-credit` |
 | 색상 | style.css 맨 위 `:root` |
 | 공유 미리보기(Open Graph) | index.html·portfolio.html `<head>`. 배포 주소를 바꾸면 `og:url`·`og:image`·`canonical` 의 주소도 함께 바꿉니다 |
+
+## 업데이트할 때 (캐시 문제 방지) — 꼭 읽어 주세요
+GitHub Pages 는 모든 파일을 방문자 브라우저에 10분간 캐시하도록 응답하며 이 설정은 바꿀 수 없습니다. 그래서 `style.css` 처럼 주소가 그대로인 파일은 수정해도 이전 방문자에게 옛 내용이 남아, 새 HTML 과 옛 CSS 가 섞여 보일 수 있습니다.
+이를 막기 위해 HTML 의 CSS·JS 주소에 파일 내용으로 계산한 `?v=해시` 를 붙여 두었습니다 (예: `style.css?v=2c58e9aa`). 파일이 바뀌면 해시가 바뀌어 방문자가 새 파일을 받습니다.
+
+**CSS·JS(style.css, landing.css, script.js, landing.js, transition.js)를 고쳤다면, 커밋 전에 한 번 실행하세요.**
+```
+python3 tools/stamp-version.py          # 버전 갱신 (Windows: python 또는 py)
+python3 tools/stamp-version.py --check  # 갱신이 필요한지만 확인
+```
+그다음 index.html·portfolio.html 도 함께 커밋·푸시합니다. (HTML 만 고쳤다면 실행할 필요 없습니다.)
+- 이 도구를 쓸 수 없으면: 두 HTML 에서 고친 파일의 `?v=` 뒤 값을 아무 새 값(예: 날짜)으로 직접 바꿔도 됩니다. 두 HTML 모두 같은 파일은 같은 값으로 맞추세요.
+- 이미지·PDF 를 같은 이름으로 교체했다면 방문자에게 최대 10분간 옛 파일이 보일 수 있습니다. 새 파일 이름을 쓰거나(예: draping-1-v2.jpg) 잠시 기다려 주세요.
+- HTML 자체도 최대 10분간 캐시될 수 있어, 배포 직후 10분 안에는 옛 화면이 보일 수 있습니다(옛 HTML 은 옛 CSS 와 짝이 맞아 깨져 보이지는 않습니다).
+- 링크 공유 미리보기(og-image.jpg)는 카카오톡 등 서비스 쪽 캐시라 이 방법과 별개입니다. 공유 이미지를 바꾸면 해당 서비스의 미리보기 갱신 도구로 새로 고쳐야 합니다.
 
 ## 내 컴퓨터에서 보기
 폴더에서 터미널을 열고 `python3 -m http.server 8000` 실행 후 http://localhost:8000 접속.
